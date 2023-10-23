@@ -1,13 +1,13 @@
-package com.raisetech10.liquor_management;
+package com.raisetech10.liquor_management.entity;
 
 public class Liquor {
     private int id;
     private String lipuor_type;
     private String producing_country;
     private String liquor_name;
-    private String alcohol_content;
+    private int alcohol_content;
 
-    public Liquor(int id, String lipuor_type, String producing_country, String liquor_name, String alcohol_content) {
+    public Liquor(int id, String lipuor_type, String producing_country, String liquor_name, int alcohol_content) {
         this.id = id;
         this.lipuor_type = lipuor_type;
         this.producing_country = producing_country;
@@ -31,7 +31,7 @@ public class Liquor {
         return liquor_name;
     }
 
-    public String getAlcohol_content() {
+    public int getAlcohol_content() {
         return alcohol_content;
     }
 }
