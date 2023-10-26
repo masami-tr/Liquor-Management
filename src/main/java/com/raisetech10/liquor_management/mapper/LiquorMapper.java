@@ -12,16 +12,11 @@ public interface LiquorMapper {
     //GET
     @Select("Select * FROM liquor")
      List<Liquor> findAll();
-    /* @Select("Select * FROM liquor WHERE id = #{id]")
-       optional<Lipuor> findById(int id); */
 
-    //@Select("SELECT name FROM movie_list WHERE name = #{name}")
-    // Optional<String> findMovie(String name);
 
 
     //POST
-    @Insert("INSERT INTO liquor_management (id, liquor_type, producing_country, liquor_name, alcohol_content) VALUES (#{id}, #{liquor_type},#{producing_country},#{liquor_name},#{alcohol_content})")
-   // @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
+    @Insert("INSERT INTO liquor_management(id, liquorType, producingCountry, liquorName, alcoholContent) VALUES (#{id}, #{liquorType}, #{producingCountry}, #{liquorName}, #{alcoholContent})")
     void insert(Liquor liquor);
 
 

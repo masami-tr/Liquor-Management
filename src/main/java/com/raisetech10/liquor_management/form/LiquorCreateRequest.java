@@ -4,21 +4,21 @@ import com.raisetech10.liquor_management.entity.Liquor;
 
 public class LiquorCreateRequest {
     private int id;
-    private String liquor_type;
-    private String producting_contry;
-    private String liquor_name;
-    private int alcohol_content;
+    private String liquorType;
+    private String productingContry;
+    private String liquorName;
+    private int alcoholContent;
 
-    public LiquorCreateRequest(int id, String liquor_type, String producting_contry, String liquor_name, int alcohol_content) {
+    public LiquorCreateRequest(int id, String liquorType, String productingContry, String liquorName, int alcoholContent) {
         this.id = id;
-        this.liquor_type = liquor_type;
-        this.producting_contry = producting_contry;
-        this.liquor_name = liquor_name;
-        this.alcohol_content = alcohol_content;
+        this.liquorType = liquorType;
+        this.productingContry = productingContry;
+        this.liquorName = liquorName;
+        this.alcoholContent = alcoholContent;
     }
 
     public Liquor covertToLiquor(){
-        Liquor liquor = new Liquor(this.id, this.liquor_type, this.producting_contry,this.liquor_name,this.alcohol_content);
+        Liquor liquor = new Liquor(this.id, this.liquorType, this.productingContry,this.liquorName,this.alcoholContent);
         return liquor;
     }
 
@@ -26,19 +26,19 @@ public class LiquorCreateRequest {
         return id;
     }
 
-    public String getLiquor_type() {
-        return liquor_type;
+    public String getLiquorType() {
+        return liquorType;
     }
 
-    public String getProducting_contry() {
-        return producting_contry;
+    public String getProductingContry() {
+        return productingContry;
     }
 
-    public String getLiquor_name() {
-        return liquor_name;
+    public String getLiquorName() {
+        return liquorName;
     }
 
-    public int getAlcohol_content() {
-        return alcohol_content;
+    public int getAlcoholContent() {
+        return alcoholContent;
     }
 }
