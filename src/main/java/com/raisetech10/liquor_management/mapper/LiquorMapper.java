@@ -9,19 +9,19 @@ import java.util.List;
 
 @Mapper
 public interface LiquorMapper {
-//GET
+    //GET
     @Select("Select * FROM liquor")
      List<Liquor> findAll();
     /* @Select("Select * FROM liquor WHERE id = #{id]")
        optional<Lipuor> findById(int id); */
 
+    //@Select("SELECT name FROM movie_list WHERE name = #{name}")
+    // Optional<String> findMovie(String name);
+
 
     //POST
-    @Select("SELECT name FROM movie_list WHERE name = #{name}")
-   // Optional<String> findMovie(String name);
-
     @Insert("INSERT INTO liquor_management (id, liquor_type, producing_country, liquor_name, alcohol_content) VALUES (#{id}, #{liquor_type},#{producing_country},#{liquor_name},#{alcohol_content})")
-    //@Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
+   // @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     void insert(Liquor liquor);
 
 

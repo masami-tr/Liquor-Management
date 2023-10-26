@@ -9,10 +9,10 @@ import java.util.List;
 @Service
 public class LiquorServiceImpl implements LiquorService {
 
-    //フィールド定義
+    //field
     private LiquorMapper liquorMapper;
 
-    //コンストラクタ
+    //constructor
     public LiquorServiceImpl(LiquorMapper liquorMapper) {
         this.liquorMapper = liquorMapper;
     }
