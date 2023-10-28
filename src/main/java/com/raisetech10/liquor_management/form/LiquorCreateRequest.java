@@ -5,20 +5,20 @@ import com.raisetech10.liquor_management.entity.Liquor;
 public class LiquorCreateRequest {
     private int id;
     private String liquorType;
-    private String productingContry;
+    private String producingCountry;
     private String liquorName;
     private int alcoholContent;
 
-    public LiquorCreateRequest(int id, String liquorType, String productingContry, String liquorName, int alcoholContent) {
+    public LiquorCreateRequest(int id, String liquorType, String producingCountry, String liquorName, int alcoholContent) {
         this.id = id;
         this.liquorType = liquorType;
-        this.productingContry = productingContry;
+        this.producingCountry = producingCountry;
         this.liquorName = liquorName;
         this.alcoholContent = alcoholContent;
     }
 
     public Liquor covertToLiquor(){
-        Liquor liquor = new Liquor(this.id, this.liquorType, this.productingContry,this.liquorName,this.alcoholContent);
+        Liquor liquor = new Liquor(this.id, this.liquorType, this.producingCountry,this.liquorName,this.alcoholContent);
         return liquor;
     }
 
@@ -30,8 +30,8 @@ public class LiquorCreateRequest {
         return liquorType;
     }
 
-    public String getProductingContry() {
-        return productingContry;
+    public String getProducingCountry() {
+        return producingCountry;
     }
 
     public String getLiquorName() {
