@@ -16,7 +16,7 @@ public interface LiquorMapper {
 
 
     //POST
-    @Insert("INSERT INTO liquor_management(id, liquorType, producingCountry, liquorName, alcoholContent) VALUES (#{id}, #{liquorType}, #{producingCountry}, #{liquorName}, #{alcoholContent})")
+    @Insert("INSERT INTO liquor (id, liquorType, producingCountry, liquorName, alcoholContent) VALUES (#{id}, #{liquorType}, #{producingCountry}, #{liquorName}, #{alcoholContent})")
     void insert(Liquor liquor);
 
 
