@@ -12,6 +12,8 @@ public interface LiquorService {
 
     Liquor createLiquor(Liquor liquor);
 
+
+
     Liquor updateLiquor(Liquor liquor);
 
 }

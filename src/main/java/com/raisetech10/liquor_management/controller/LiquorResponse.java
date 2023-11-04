@@ -2,13 +2,13 @@ package com.raisetech10.liquor_management.controller;
 
 public class LiquorResponse {
 
-    private String massege;
+    private String message;
 
-    public LiquorResponse(String massege) {
-        this.massege = massege;
+    public LiquorResponse(String message) {
+        this.message = message;
     }
 
-    public String getMassege() {
-        return massege;
+    public String getMessage() {
+        return message;
     }
 }

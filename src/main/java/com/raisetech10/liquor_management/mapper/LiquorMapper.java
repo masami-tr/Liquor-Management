@@ -24,8 +24,12 @@ public interface LiquorMapper {
     void insert(Liquor liquor);
 
     //PATCH
+    @Select("Select * FROM liquor WHERE id = #{id}")
+    Optional<Liquor> findLiquorId(int id);
+
     @Update("UPDATE liquor SET liquorType = #{liquorType}, producingCountry = #{producingCountry}, liquorName = #{liquorName}, alcoholContent = #{alcoholContent} WHERE id = #{id}")
     void update(Liquor liquor);
+
 
 
 

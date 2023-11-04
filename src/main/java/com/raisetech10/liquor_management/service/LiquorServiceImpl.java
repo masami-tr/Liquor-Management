@@ -1,6 +1,7 @@
 package com.raisetech10.liquor_management.service;
 
 import com.raisetech10.liquor_management.Exception.ResourceNotFoundException;
+import com.raisetech10.liquor_management.controller.LiquorController;
 import com.raisetech10.liquor_management.entity.Liquor;
 import com.raisetech10.liquor_management.mapper.LiquorMapper;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class LiquorServiceImpl implements LiquorService {
         return liquorMapper.findAll();
     }
 
-    //GET Excepion
+    //GET Exception
     @Override
     public Liquor findById(int id){
         Optional<Liquor> liquor = this.liquorMapper.findById(id);
@@ -42,6 +43,8 @@ public class LiquorServiceImpl implements LiquorService {
     //PATCH
     @Override
     public Liquor updateLiquor(Liquor liquor) {
+        liquorMapper.findLiquorId(liquor.getId())
+                        .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★" + liquor.getId()));
         liquorMapper.update(liquor);
         return liquor;
     }

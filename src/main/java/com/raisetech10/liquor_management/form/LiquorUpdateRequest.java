@@ -17,7 +17,7 @@ public class LiquorUpdateRequest {
         this.alcoholContent = alcoholContent;
     }
 
-    public Liquor covertToLiquor(){
+    public Liquor covertToLiquor(int id){
         Liquor liquor = new Liquor(this.id, this.liquorType, this.producingCountry,this.liquorName,this.alcoholContent);
         return liquor;
     }

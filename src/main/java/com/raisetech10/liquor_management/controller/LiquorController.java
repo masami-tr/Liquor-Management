@@ -3,6 +3,7 @@ package com.raisetech10.liquor_management.controller;
 
 import com.raisetech10.liquor_management.entity.Liquor;
 import com.raisetech10.liquor_management.form.LiquorCreateRequest;
+import com.raisetech10.liquor_management.form.LiquorUpdateRequest;
 import com.raisetech10.liquor_management.service.LiquorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class LiquorController {
     //ID検索で該当データ取得＋例外処理
     @GetMapping("/liquor/{id}")
     public Liquor findById(@PathVariable ("id") int id){
-        return liquorService.findById(id);//一旦そのまま返す
+        return liquorService.findById(id);
     }
 
     //POST
@@ -51,13 +52,13 @@ public class LiquorController {
     //PATCH
     //お酒のデータを更新
     @PatchMapping("/liquor/{id}")
-    public ResponseEntity<LiquorResponse> updateLiquor(@PathVariable("id") int id, @RequestBody LiquorCreateRequest liquorCreateRequest){
-        Liquor liquor = liquorService.updateLiquor(liquorCreateRequest.covertToLiquor());
+    public ResponseEntity<LiquorResponse> updateLiquor(@PathVariable("id") int id, @RequestBody LiquorUpdateRequest liquorUpdateRequest){
+        liquorService.updateLiquor(liquorUpdateRequest.covertToLiquor(id));
         return ResponseEntity.ok(new LiquorResponse("★a liquor is updated★"));
     }
 
-    //DELETE
-    //お酒のデータを削除
+
+
 
 
 
