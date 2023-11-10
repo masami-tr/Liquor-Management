@@ -34,4 +34,24 @@ public class Liquor {
     public int getAlcoholContent() {
         return alcoholContent;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLiquorType(String liquorType) {
+        this.liquorType = liquorType;
+    }
+
+    public void setProducingCountry(String producingCountry) {
+        this.producingCountry = producingCountry;
+    }
+
+    public void setLiquorName(String liquorName) {
+        this.liquorName = liquorName;
+    }
+
+    public void setAlcoholContent(int alcoholContent) {
+        this.alcoholContent = alcoholContent;
+    }
 }

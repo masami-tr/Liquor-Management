@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface LiquorMapper {
     //GET
     @Select("Select * FROM liquor")
-     List<Liquor> findAll();
+    List<Liquor> findAll();
 
     //GET Exception
     @Select("Select * FROM liquor WHERE id = #{id}")
@@ -26,12 +26,9 @@ public interface LiquorMapper {
     //PATCH
     @Select("Select * FROM liquor WHERE id = #{id}")
     Optional<Liquor> findLiquorId(int id);
-
+    
     @Update("UPDATE liquor SET liquorType = #{liquorType}, producingCountry = #{producingCountry}, liquorName = #{liquorName}, alcoholContent = #{alcoholContent} WHERE id = #{id}")
     void update(Liquor liquor);
-
-
-
 
 
 }

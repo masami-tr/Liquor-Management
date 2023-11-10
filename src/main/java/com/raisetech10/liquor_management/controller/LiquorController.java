@@ -18,7 +18,7 @@ public class LiquorController {
     //field
     private LiquorService liquorService;
 
-   //constructor
+    //constructor
     public LiquorController(LiquorService liquorService) {
         this.liquorService = liquorService;
     }
@@ -26,14 +26,14 @@ public class LiquorController {
     //GETの実装
     //全件取得の実装
     @GetMapping("/liquor")
-    public List<Liquor> liquors(){
+    public List<Liquor> liquors() {
         List<Liquor> liquors = liquorService.findAll();
         return liquors;
     }
 
     //ID検索で該当データ取得＋例外処理
     @GetMapping("/liquor/{id}")
-    public Liquor findById(@PathVariable ("id") int id){
+    public Liquor findById(@PathVariable("id") int id) {
         return liquorService.findById(id);
     }
 
@@ -52,14 +52,11 @@ public class LiquorController {
     //PATCH
     //お酒のデータを更新
     @PatchMapping("/liquor/{id}")
-    public ResponseEntity<LiquorResponse> updateLiquor(@PathVariable("id") int id, @RequestBody LiquorUpdateRequest liquorUpdateRequest){
-        liquorService.updateLiquor(liquorUpdateRequest.covertToLiquor(id));
+    public ResponseEntity<LiquorResponse> updateLiquor(@PathVariable("id") int id, @RequestBody LiquorUpdateRequest liquorUpdateRequest) {
+        liquorService.updateLiquor(id, liquorUpdateRequest.getLiquorType(), liquorUpdateRequest.getProducingCountry(), liquorUpdateRequest.getLiquorName(), liquorUpdateRequest.getAlcoholContent());
+        //liquorService.updateLiquor(liquorUpdateRequest.covertToLiquor(id));
         return ResponseEntity.ok(new LiquorResponse("★a liquor is updated★"));
     }
-
-
-
-
 
 
 }
