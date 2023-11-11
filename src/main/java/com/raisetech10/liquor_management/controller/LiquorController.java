@@ -54,7 +54,6 @@ public class LiquorController {
     @PatchMapping("/liquor/{id}")
     public ResponseEntity<LiquorResponse> updateLiquor(@PathVariable("id") int id, @RequestBody LiquorUpdateRequest liquorUpdateRequest) {
         liquorService.updateLiquor(id, liquorUpdateRequest.getLiquorType(), liquorUpdateRequest.getProducingCountry(), liquorUpdateRequest.getLiquorName(), liquorUpdateRequest.getAlcoholContent());
-        //liquorService.updateLiquor(liquorUpdateRequest.covertToLiquor(id));
         return ResponseEntity.ok(new LiquorResponse("★a liquor is updated★"));
     }
 

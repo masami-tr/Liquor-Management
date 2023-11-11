@@ -45,27 +45,18 @@ public class LiquorServiceImpl implements LiquorService {
         Liquor liquor = liquorMapper.findLiquorId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★" + id));
         if (liquorType != null) {
-            liquor.setLiquorType(liquor.getLiquorType());
+            liquor.setLiquorType(liquorType);
         }
         if (producingCountry != null) {
-            liquor.setProducingCountry(liquor.getProducingCountry());
+            liquor.setProducingCountry(producingCountry);
         }
         if (liquorName != null) {
-            liquor.setLiquorName(liquor.getLiquorName());
+            liquor.setLiquorName(liquorName);
         }
         if (alcoholContent != 0) {
-            liquor.setAlcoholContent(liquor.getAlcoholContent());
+            liquor.setAlcoholContent(alcoholContent);
         }
         liquorMapper.update(liquor);
         return liquor;
     }
-
-   /* @Override
-      public Liquor updateLiquor(Liquor liquor) {　　旧コード
-        liquorMapper.findLiquorId(liquor.getId())
-                        .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★" + liquor.getId()));
-        liquorMapper.update(liquor);
-        return liquor;
-    }*/
-
 }
