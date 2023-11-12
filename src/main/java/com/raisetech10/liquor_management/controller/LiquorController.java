@@ -16,7 +16,7 @@ import java.util.List;
 public class LiquorController {
 
     //field
-    private LiquorService liquorService;
+    private final LiquorService liquorService;
 
     //constructor
     public LiquorController(LiquorService liquorService) {
@@ -55,6 +55,14 @@ public class LiquorController {
     public ResponseEntity<LiquorResponse> updateLiquor(@PathVariable("id") int id, @RequestBody LiquorUpdateRequest liquorUpdateRequest) {
         liquorService.updateLiquor(id, liquorUpdateRequest.getLiquorType(), liquorUpdateRequest.getProducingCountry(), liquorUpdateRequest.getLiquorName(), liquorUpdateRequest.getAlcoholContent());
         return ResponseEntity.ok(new LiquorResponse("★a liquor is updated★"));
+    }
+
+    //DELETE
+    //お酒のデータを削除
+    @DeleteMapping("/liquor/{id}")
+    public ResponseEntity<LiquorResponse> deleteLiquor(@PathVariable("id") int id) {
+        liquorService.deleteLiquor(id);
+        return ResponseEntity.ok(new LiquorResponse("★a liquor is deleted★"));
     }
 
 

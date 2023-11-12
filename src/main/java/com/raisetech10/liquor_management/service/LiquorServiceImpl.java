@@ -12,7 +12,7 @@ import java.util.Optional;
 public class LiquorServiceImpl implements LiquorService {
 
     //field
-    private LiquorMapper liquorMapper;
+    private final LiquorMapper liquorMapper;
 
     //constructor
     public LiquorServiceImpl(LiquorMapper liquorMapper) {
@@ -58,5 +58,14 @@ public class LiquorServiceImpl implements LiquorService {
         }
         liquorMapper.update(liquor);
         return liquor;
+    }
+
+    //DELETE
+    @Override
+    public Liquor deleteLiquor(int id) {
+        liquorMapper.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★"));
+        liquorMapper.delete(id);
+        return null;
     }
 }
