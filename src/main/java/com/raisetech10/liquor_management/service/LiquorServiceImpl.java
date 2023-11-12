@@ -64,7 +64,7 @@ public class LiquorServiceImpl implements LiquorService {
     @Override
     public Liquor deleteLiquor(int id) {
         liquorMapper.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★"));
+                .orElseThrow(() -> new ResourceNotFoundException("*Liquor not found*" + id));
         liquorMapper.delete(id);
         return null;
     }

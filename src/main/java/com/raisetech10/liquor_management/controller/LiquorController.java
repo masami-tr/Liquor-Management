@@ -59,7 +59,7 @@ public class LiquorController {
 
     //DELETE
     //お酒のデータを削除
-    @DeleteMapping("/liquor/{id}")
+    @DeleteMapping("/liquor/{id}") //idを指定して削除
     public ResponseEntity<LiquorResponse> deleteLiquor(@PathVariable("id") int id) {
         liquorService.deleteLiquor(id);
         return ResponseEntity.ok(new LiquorResponse("★a liquor is deleted★"));
