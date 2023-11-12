@@ -1,18 +1,25 @@
-package com.raisetech10.liquor_management.entity;
+package com.raisetech10.liquor_management.form;
 
-public class Liquor {
+import com.raisetech10.liquor_management.entity.Liquor;
+
+public class LiquorUpdateRequest {
     private int id;
     private String liquorType;
     private String producingCountry;
     private String liquorName;
     private int alcoholContent;
 
-    public Liquor(int id, String liquorType, String producingCountry, String liquorName, int alcoholContent) {
+    public LiquorUpdateRequest(int id, String liquorType, String producingCountry, String liquorName, int alcoholContent) {
         this.id = id;
         this.liquorType = liquorType;
         this.producingCountry = producingCountry;
         this.liquorName = liquorName;
         this.alcoholContent = alcoholContent;
+    }
+
+    public Liquor covertToLiquor(int id){
+        Liquor liquor = new Liquor(this.id, this.liquorType, this.producingCountry,this.liquorName,this.alcoholContent);
+        return liquor;
     }
 
     public int getId() {
@@ -33,25 +40,5 @@ public class Liquor {
 
     public int getAlcoholContent() {
         return alcoholContent;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setLiquorType(String liquorType) {
-        this.liquorType = liquorType;
-    }
-
-    public void setProducingCountry(String producingCountry) {
-        this.producingCountry = producingCountry;
-    }
-
-    public void setLiquorName(String liquorName) {
-        this.liquorName = liquorName;
-    }
-
-    public void setAlcoholContent(int alcoholContent) {
-        this.alcoholContent = alcoholContent;
     }
 }
