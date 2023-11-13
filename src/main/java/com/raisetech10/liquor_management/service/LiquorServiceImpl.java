@@ -12,7 +12,7 @@ import java.util.Optional;
 public class LiquorServiceImpl implements LiquorService {
 
     //field
-    private LiquorMapper liquorMapper;
+    private final LiquorMapper liquorMapper;
 
     //constructor
     public LiquorServiceImpl(LiquorMapper liquorMapper) {
@@ -29,7 +29,7 @@ public class LiquorServiceImpl implements LiquorService {
     @Override
     public Liquor findById(int id) {
         Optional<Liquor> liquor = this.liquorMapper.findById(id);
-        return liquor.orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★" + id));
+        return liquor.orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★"));
     }
 
     //POST
@@ -43,7 +43,7 @@ public class LiquorServiceImpl implements LiquorService {
     @Override
     public Liquor updateLiquor(int id, String liquorType, String producingCountry, String liquorName, Integer alcoholContent) {
         Liquor liquor = liquorMapper.findLiquorId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★"));
         if (liquorType != null) {
             liquor.setLiquorType(liquorType);
         }
@@ -58,5 +58,13 @@ public class LiquorServiceImpl implements LiquorService {
         }
         liquorMapper.update(liquor);
         return liquor;
+    }
+
+    //DELETE
+    @Override
+    public void deleteLiquor(int id) {
+        liquorMapper.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("*Liquor not found*"));
+        liquorMapper.delete(id);
     }
 }

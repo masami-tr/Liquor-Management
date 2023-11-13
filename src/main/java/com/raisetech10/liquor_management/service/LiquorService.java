@@ -14,4 +14,6 @@ public interface LiquorService {
 
     Liquor updateLiquor(int id, String liquorType, String producingCountry, String liquorName, Integer alcoholContent);
 
+    void deleteLiquor(int id);
+
 }
