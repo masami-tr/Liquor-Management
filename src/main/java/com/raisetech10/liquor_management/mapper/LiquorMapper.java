@@ -29,7 +29,7 @@ public interface LiquorMapper {
 
     //DELETE
     @Delete("DELETE FROM liquor WHERE id = #{id}")
-    void delete(int id); //void deleteLiquor(int id);
+    void delete(int id);
 
 
 }
