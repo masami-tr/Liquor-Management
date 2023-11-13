@@ -29,7 +29,7 @@ public class LiquorServiceImpl implements LiquorService {
     @Override
     public Liquor findById(int id) {
         Optional<Liquor> liquor = this.liquorMapper.findById(id);
-        return liquor.orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★" + id));
+        return liquor.orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★"));
     }
 
     //POST
@@ -43,7 +43,7 @@ public class LiquorServiceImpl implements LiquorService {
     @Override
     public Liquor updateLiquor(int id, String liquorType, String producingCountry, String liquorName, Integer alcoholContent) {
         Liquor liquor = liquorMapper.findLiquorId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("★Liquor not found★"));
         if (liquorType != null) {
             liquor.setLiquorType(liquorType);
         }
@@ -62,10 +62,9 @@ public class LiquorServiceImpl implements LiquorService {
 
     //DELETE
     @Override
-    public Liquor deleteLiquor(int id) {
+    public void deleteLiquor(int id) {
         liquorMapper.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("*Liquor not found*" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("*Liquor not found*"));
         liquorMapper.delete(id);
-        return null;
     }
 }
