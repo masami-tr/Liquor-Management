@@ -16,7 +16,6 @@ public interface LiquorMapper {
     @Select("Select * FROM liquor")
     List<Liquor> findAll();
 
-    //GET Exception
     @Select("Select * FROM liquor WHERE id = #{id}")
     Optional<Liquor> findById(int id);
 
