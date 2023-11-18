@@ -1,5 +1,7 @@
 package com.raisetech10.liquor_management.entity;
 
+import java.util.Objects;
+
 public class Liquor {
     private int id;
     private String liquorType;
@@ -53,5 +55,21 @@ public class Liquor {
 
     public void setAlcoholContent(int alcoholContent) {
         this.alcoholContent = alcoholContent;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        Liquor liquor = (Liquor) obj;
+
+        // ここで各フィールドの比較を行う
+        return id == liquor.id &&
+                Objects.equals(liquorType, liquor.liquorType) &&
+                Objects.equals(producingCountry, liquor.producingCountry) &&
+                Objects.equals(liquorName, liquor.liquorName) &&
+                Objects.equals(alcoholContent, liquor.alcoholContent);
     }
 }
