@@ -15,6 +15,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -57,6 +58,16 @@ public class LiquorServiceImplTest {
             liquorServiceImpl.findById(1000);
         });
         verify(liquorMapper, times(1)).findById(1000);
+    }
+
+    //POSTテストコード
+    @Test
+    public void 存在しないリカー情報を新規登録する() {
+        Liquor liquor = new Liquor(10, "ジン", "イギリス", "ビーフィーター", 40);
+        doNothing().when(liquorMapper).insert(liquor);
+        Liquor actual = liquorServiceImpl.createLiquor(liquor);
+        assertThat(actual).isEqualTo(new Liquor(10, "ジン", "イギリス", "ビーフィーター", 40));
+        verify(liquorMapper, times(1)).insert(liquor);
     }
 
 

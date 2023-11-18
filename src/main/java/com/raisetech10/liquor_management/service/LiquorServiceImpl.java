@@ -25,7 +25,6 @@ public class LiquorServiceImpl implements LiquorService {
         return liquorMapper.findAll();
     }
 
-    //GET Exception
     @Override
     public Liquor findById(int id) {
         Optional<Liquor> liquor = this.liquorMapper.findById(id);
