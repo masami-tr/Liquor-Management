@@ -114,5 +114,25 @@ public class LiquorServiceImplTest {
         verify(liquorMapper, times(1)).findLiquorId(1000);
     }
 
+    //DELETEテストコード
+    @Test
+    public void 存在するリカー情報IDを削除すること() {
+        Liquor liquor = new Liquor(1, "ウイスキー", "スコットランド", "マッカラン", 40);
+        doReturn(Optional.of(liquor)).when(liquorMapper).findById(1);
+        doNothing().when(liquorMapper).delete(1);
+        liquorServiceImpl.deleteLiquor(1);
+        verify(liquorMapper, times(1)).findById(1);
+        verify(liquorMapper, times(1)).delete(1);
+    }
+
+    @Test
+    public void 存在しないリカー情報を削除する時の例外処理が動作すること() throws ResourceNotFoundException {
+        doReturn(Optional.empty()).when(liquorMapper).findById(1000);
+        assertThrows(ResourceNotFoundException.class, () -> liquorServiceImpl.deleteLiquor(1000));
+        verify(liquorMapper, times(1)).findById(1000);
+        verify(liquorMapper, times(0)).delete(1000);
+
+    }
+
 
 }
