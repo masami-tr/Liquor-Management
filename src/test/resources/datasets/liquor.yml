@@ -1,0 +1,11 @@
+liquor:
+  - id: 1
+    liquorType: "ウイスキー"
+    producingCountry: "スコットランド"
+    liquorName: "マッカラン"
+    alcoholContent: 40
+  - id: 2
+    liquorType: "焼酎"
+    producingCountry: "日本"
+    liquorName: "黒霧島"
+    alcoholContent: 25
