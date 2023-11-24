@@ -54,5 +54,4 @@ class LiquorMapperTest {
         assertThat(liquor).isEmpty();
     }
 
-
 }
