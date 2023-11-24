@@ -1,0 +1,2 @@
+INSERT INTO liquor (id, liquorType, producingCountry, liquorName, alcoholContent) VALUES (1, "ウイスキー", "スコットランド", "マッカラン", 40);
+INSERT INTO liquor (id, liquorType, producingCountry, liquorName, alcoholContent) VALUES (2, "焼酎", "日本", "黒霧島", 25);
