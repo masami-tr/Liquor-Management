@@ -61,7 +61,7 @@ class LiquorMapperTest {
     @ExpectedDataSet(value = "datasets/create-liquor.yml", ignoreCols = "id")
     @Transactional
     void 新規のリカー情報を登録すること() {
-        Liquor liquor = new Liquor(3, "ビール", "日本", "よなよなエール", 5);
+        Liquor liquor = new Liquor("ビール", "日本", "よなよなエール", 5);
         liquorMapper.insert(liquor);
     }
 

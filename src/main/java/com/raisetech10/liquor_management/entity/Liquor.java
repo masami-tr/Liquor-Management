@@ -17,6 +17,14 @@ public class Liquor {
         this.alcoholContent = alcoholContent;
     }
 
+    //CREATE機能 DBテスト用コンストラクタ
+    public Liquor(String liquorType, String producingCountry, String liquorName, int alcoholContent) {
+        this.liquorType = liquorType;
+        this.producingCountry = producingCountry;
+        this.liquorName = liquorName;
+        this.alcoholContent = alcoholContent;
+    }
+
     public int getId() {
         return id;
     }
