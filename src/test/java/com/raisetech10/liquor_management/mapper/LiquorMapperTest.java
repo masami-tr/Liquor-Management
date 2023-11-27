@@ -63,6 +63,8 @@ class LiquorMapperTest {
     void 新規のリカー情報を登録すること() {
         Liquor liquor = new Liquor("ビール", "日本", "よなよなエール", 5);
         liquorMapper.insert(liquor);
+        Optional<Liquor> insertLiquor = liquorMapper.findById(liquor.getId());
+        assertThat(insertLiquor).isNotEmpty();
     }
 
 }

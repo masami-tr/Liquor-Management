@@ -80,4 +80,5 @@ public class Liquor {
                 Objects.equals(liquorName, liquor.liquorName) &&
                 Objects.equals(alcoholContent, liquor.alcoholContent);
     }
+
 }

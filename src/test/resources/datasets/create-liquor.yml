@@ -11,7 +11,7 @@ liquor:
     liquorName: "黒霧島"
     alcoholContent: 25
 
-  - id: 3
+  - id: null
     liquorType: "ビール"
     producingCountry: "日本"
     liquorName: "よなよなエール"

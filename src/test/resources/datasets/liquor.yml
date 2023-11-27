@@ -4,6 +4,7 @@ liquor:
     producingCountry: "スコットランド"
     liquorName: "マッカラン"
     alcoholContent: 40
+
   - id: 2
     liquorType: "焼酎"
     producingCountry: "日本"
