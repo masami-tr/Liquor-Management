@@ -1,6 +1,7 @@
 package com.raisetech10.liquor_management.mapper;
 
 import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.core.api.dataset.ExpectedDataSet;
 import com.github.database.rider.spring.api.DBRider;
 import com.raisetech10.liquor_management.entity.Liquor;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
+
 @DBRider
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -21,7 +23,6 @@ class LiquorMapperTest {
 
     @Autowired
     LiquorMapper liquorMapper;
-
 
     //READ機能 DBテスト
     @Test
@@ -54,4 +55,17 @@ class LiquorMapperTest {
         assertThat(liquor).isEmpty();
     }
 
+    //CREATE機能 DBテスト
+    @Test
+    @DataSet(value = "datasets/liquor.yml")
+    @ExpectedDataSet(value = "datasets/create-liquor.yml", ignoreCols = "id")
+    @Transactional
+    void 新規のリカー情報を登録すること() {
+        Liquor liquor = new Liquor("ビール", "日本", "よなよなエール", 5);
+        liquorMapper.insert(liquor);
+        Optional<Liquor> insertLiquor = liquorMapper.findById(liquor.getId());
+        assertThat(insertLiquor).isNotEmpty();
+    }
+
 }
+

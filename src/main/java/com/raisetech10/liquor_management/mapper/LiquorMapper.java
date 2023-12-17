@@ -4,6 +4,7 @@ import com.raisetech10.liquor_management.entity.Liquor;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -21,6 +22,7 @@ public interface LiquorMapper {
 
     //POST
     @Insert("INSERT INTO liquor (id, liquorType, producingCountry, liquorName, alcoholContent) VALUES (#{id}, #{liquorType}, #{producingCountry}, #{liquorName}, #{alcoholContent})")
+    @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     void insert(Liquor liquor);
 
     //PATCH
